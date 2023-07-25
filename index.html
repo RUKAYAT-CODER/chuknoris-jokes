@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chuck Norris jokes</title>
+    <style>
+        body{
+            font-family: sans-serif;
+        }
+        .container{
+            width: 350px;
+            background:url(./bakground-chuki.avif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 25px;
+            margin: 20px auto;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+        button{
+            padding: 15px 20px;
+            border-radius: 20px;
+            border:none;
+            transition: 0.25s;
+            background: rgb(228, 78, 86);
+            color: white;
+            font-size: 18px;
+        }
+        button:hover{
+            cursor: pointer;
+            background: rgb(112, 68, 68);
+        }
+        p{
+            font-size: 20px;
+            color: rgb(224, 222, 223);
+        }
+        img{
+            max-width: 250px;
+            border: 3px dotted darkred;
+        }
+        h2{
+            color: rgb(241, 68, 68);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <button type="submit" onclick="fetchJokes()">Click to get more jokes😜</button>
+        <h2>Thrilling and Exciting Jokes for the Holiday❤️</h2>
+        <div class="card">
+            <img src="./chuki-clown.avif" alt="">
+        </div>
+
+        
+        <div>
+            <p id="display-jokes"></p>
+        
+        </div>
+    </div>
+
+
+    <script>
+        const displayJokes = document.getElementById('display-jokes')
+
+        async function fetchJokes(){
+            const errorMessage ="Do not disturbed! entertainment is currnt ongoing ararhh!!!"
+            try{
+            const results = await fetch(`https://api.chucknorris.io/jokes/random`)
+            if(!results.ok){
+                console.log(errorMessage)
+                throw new Error('Request Failed!')
+            }
+            const data = await results.json()
+            displayJokes.textContent = data.value
+            console.log(data.value)
+        }
+        catch(error){
+            console.log(errorMessage)
+            console.error(error)
+        }
+        }
+        fetchJokes()
+
+       
+    </script>
+</body>
+</html>
