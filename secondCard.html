@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secnd card | Select categories of jokes</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="container">
+        <label for="category">Select your category</label>
+        <select name="category" id="category" disabled>
+        </select><br>
+        <button id="" onclick="fetchJokes">Get a New Category Joke 😜</button>
+        <h3>Happy Holiday from Chuck Norris ❤️</h3>
+        <div class="card">
+            <img src="clown2.avif" alt="">
+        </div>
+        <p id="displayJokes"></p>
+    </div>
+        <script>
+             let choosenCategory = `dev`
+             const displayJokes = document.getElementById('displayJokes')
+             let output =``
+            const category = document.getElementById('category')
+            category.addEventListener('change', () => {
+                    category.choosenCategory = category.value;
+                    console.log(choosenCategory)
+                })
+                async function generateCategoryOptions() {
+                        const result = await fetch(`https://api.chucknorris.io/jokes/categories`)
+                        try {
+                            if (!result.ok) {
+                                //displayJokes.textContent = errorMessage
+                                throw new error("Request Failed!")
+                            }
+                            const data = await result.json()
+                            console.log(data)
+                            category.removeAttribute("disabled")
+
+                            data.forEach((category)=>{
+                                output+= `<option value="${category}">${category}</option>`;
+                            });
+                            category.innerHTML = output;
+                            category[3].selected = true;
+
+                        }
+                        catch (error) {
+                            console.error(error)
+                        }
+                    }
+                generateCategoryOptions()
+            async function fetchJokes(){
+                const errorMessage = "Do not Disturb! Chuck Norris is currently entertaining guess at the pool!"
+            try{
+                 const result = await fetch(`https://api.chucknorris.io/jokes/random?category=${choosenCategory}`)
+                 if(!result.ok){
+                    displayJokes.textContent = errorMessage;
+                    throw new error("Request Failed!")
+                }
+                const data = await result.json()
+                displayJokes.textContent = data.value
+                console.log(data.value)
+                }
+                catch (error){
+                    displayJokes.textContent = errorMessage;
+                    console.error(error)
+                }
+            }
+            fetchJokes()
+            
+            
+        </script>
+</body>
+</html>

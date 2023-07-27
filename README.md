@@ -1,2 +1,6 @@
 # chuknoris-jokes
-Calling of chuck Norris Api to create first card
+Card one: Calling of Chuck norris api to select jokes ramdomly
+Card Two: using Chuck norris api to select jokes by categories.
+
+
+

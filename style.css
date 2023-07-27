@@ -1,0 +1,69 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+ body{
+            font-family: sans-serif;
+        }
+        .container{
+            width: 350px;
+            background:url(./bakground-chuki.avif);
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 25px;
+            margin: 20px auto;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.5);
+        }
+        #container{
+             width: 350px;
+            background:url(./backgroung2.webp);
+            background-repeat: no-repeat;
+            background-size: cover;
+            text-align: center;
+            padding: 25px;
+            margin: 20px auto;
+            box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.9);
+        }
+        button{
+            padding: 10px 20px;
+            border-radius: 20px;
+            border:none;
+            transition: 0.25s;
+            background: rgb(228, 78, 86);
+            color: white;
+            font-size: 18px;
+        }
+        button:hover{
+            cursor: pointer;
+            background: rgb(112, 68, 68);
+        }
+        #display-jokes{
+            font-size: 20px;
+            color: rgb(224, 222, 223);
+            /* background: rgba(0, 0,0,0.8);
+            background-color: rgb(167, 163, 163);
+            padding: 25px; */
+        }
+        #displayJokes{
+             font-size: 20px;
+            color: rgb(224, 222, 223);
+            background: rgba(0, 0,0,0.8);
+            background-color: rgb(238, 101, 101);
+            padding: 25px; 
+        }
+        img{
+            max-width: 250px;
+            border: 3px dotted darkred;
+            margin: 20px;
+        }
+        h2{
+            color: rgb(241, 68, 68);
+        }
+        label, select{
+            margin: 10px;
+            outline: none;
+            font-size: large;
+            padding: 3px;
+        }
